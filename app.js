@@ -4,6 +4,9 @@ const port = 8000
 
 //implementing middleware
 app.use(logging)
+app.use((req, res) => {
+    res.status(404).json({message: 'Not found'})
+    })
 //allowed origins
 //authorisation and authentication
 
@@ -23,9 +26,7 @@ app.put('/profile', ( req, res) => {
 app.get('/profile',( req, res) => {
     res.status(200).json({ message: 'Profile viewed!' })
     })
-app.use((req, res) => {
-    res.status(404).json({message: 'Not found'})
-    })
+
 function logging(req,res, next) {
     console.log("Log")
     next()
