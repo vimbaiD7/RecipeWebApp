@@ -1,35 +1,32 @@
 const express = require('express')
+const logging = require('./src/utilities/logger')
+const authRoutes = require('./src/routes/authRoutes')
+const profileRoutes = require('./src/routes/profileRoutes')
+
+const cors = require('cors')
 const app = express()
 const port = 8000
 
 //implementing middleware
 app.use(logging)
-app.use((req, res) => {
-    res.status(404).json({message: 'Not found'})
-    })
-//allowed origins
+
+//allowed origins/cors
+const corsOptions = {
+    origin: ['http://localhost','http://localhost:3000']
+}
+app.use(cors(corsOptions))
 //authorisation and authentication
 
-//http status codes
+//routes
+app.use(authRoutes)
+app.use(profileRoutes)
+
 app.get('/heartbeat',( req, res) => {
     res.status(200).json({ message: 'Hello API is working!' })
     })
-app.post('/register', ( req, res) => {
-    res.status(201).json({ message: 'Successfull registration' })
-    })
-app.post('/login', ( req, res) => {
-    res.status(200).json({ message: 'Login successfull!' })
-    })
-app.put('/profile', ( req, res) => {
-    res.status(200).json({ message: 'Profile updated' })
-    })
-app.get('/profile',( req, res) => {
-    res.status(200).json({ message: 'Profile viewed!' })
-    })
 
-function logging(req,res, next) {
-    console.log("Log")
-    next()
-}
+app.use((req, res) => {
+    res.status(404).json({message: 'Not found'})
+    })
 
 app.listen(port, () => console.log(`Server is listening on port ${port}!`))
