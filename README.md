@@ -20,3 +20,4 @@ Inserted recipe data with JSON
 ## Express server
 Configures server with JSON Parsing
 Created routes for recipes in recipeRoutes i.e Post /recipe/add, GET/recipe/:id
+Implementimg JWT  for Post /login

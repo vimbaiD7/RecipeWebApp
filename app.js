@@ -1,6 +1,5 @@
 const express = require('express')
 const logging = require('./src/utilities/logger')
-const authRoutes = require('./src/routes/auth')
 const usersRoutes = require('./src/routes/users')
 const recipeRoutes = require('./src/routes/recipes')
 
@@ -18,7 +17,7 @@ app.use(cors(corsOptions))
 
 
 app.use(express.json())
-app.use(authRoutes)
+
 app.use(usersRoutes)
 app.use(recipeRoutes)
 
