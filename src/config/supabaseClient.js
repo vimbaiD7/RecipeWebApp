@@ -6,6 +6,7 @@ const supabase_key = process.env.API_KEY
 
 const supabase = createClient(supabase_url, supabase_key)
 
-module.exports = { supabase }
+module.exports = { supabase } 
+
 
 

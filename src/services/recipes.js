@@ -21,7 +21,7 @@ const createRecipe = async (recipeData) => {
      if (error) throw error;
         return data;   
     }    
-
+ 
 const getAllRecipesForUser = async (userId) => {
   const { data, error } = await supabase
     .from('recipes')
