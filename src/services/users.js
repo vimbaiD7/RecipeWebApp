@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 import { supabase } from '../supabaseClient';
 
 
 export const createUser = async (userData) => {
+=======
+const { supabase } = require('../supabaseClient');
+
+
+const createUser = async (userData) => {
+>>>>>>> Stashed changes
     const { data, error } = await supabase
         .from('users')
         .upsert({userData});
@@ -11,7 +18,11 @@ export const createUser = async (userData) => {
    
 
 
+<<<<<<< Updated upstream
 export const getUser = async (userId) => {
+=======
+const getUser = async (userId) => {
+>>>>>>> Stashed changes
     const { data, error } = await supabase
         .from('users')
         .select();
@@ -21,7 +32,11 @@ export const getUser = async (userId) => {
   
 
 
+<<<<<<< Updated upstream
 export const updateUser = async (userId, user) => {
+=======
+const updateUser = async (userId, user) => {
+>>>>>>> Stashed changes
     const { data, error } = await supabase
         .from('users')
         .update(user)
@@ -32,7 +47,11 @@ export const updateUser = async (userId, user) => {
   
 
 
+<<<<<<< Updated upstream
 export const deleteUser = async (userId) => {
+=======
+ const deleteUser = async (userId) => {
+>>>>>>> Stashed changes
     const { data, error } = await supabase
         .from('users')
         .delete()
@@ -41,6 +60,15 @@ export const deleteUser = async (userId) => {
         return data;
     }
 
+<<<<<<< Updated upstream
+=======
+    module.exports = {
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
+};
+>>>>>>> Stashed changes
 
     
     
