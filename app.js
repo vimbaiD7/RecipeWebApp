@@ -1,32 +1,32 @@
-const express = require('express')
-const logging = require('./src/utilities/logger')
-const usersRoutes = require('./src/routes/users')
-const recipeRoutes = require('./src/routes/recipes')
+const express = require('express');
+const logging = require('./src/utilities/logger');
+const usersRoutes = require('./src/routes/users');
+const recipeRoutes = require('./src/routes/recipes');
 
-const cors = require('cors')
-const app = express()
-const port = 8000
+const cors = require('cors');
+const app = express();
+const port = 8000;
 
 
-app.use(logging)
+app.use(logging);
 
 const corsOptions = {
     origin: ['http://localhost','http://localhost:3000']
-}
-app.use(cors(corsOptions))
+};
+app.use(cors(corsOptions));
 
 
-app.use(express.json())
+app.use(express.json());
 
-app.use(usersRoutes)
-app.use(recipeRoutes)
+app.use(usersRoutes);
+app.use(recipeRoutes);
 
 app.get('/heartbeat',( req, res) => {
-    res.status(200).json({ message: 'Hello API is working!' })
-    })
+    res.status(200).json({ message: 'Hello API is working!' });
+    });
 
 app.use((req, res) => {
-    res.status(404).json({message: 'Not found'})
-    })
+    res.status(404).json({message: 'Not found'});
+    });
 
-app.listen(port, () => console.log(`Server is listening on port ${port}!`))
+app.listen(port, () => console.log(`Server is listening on port ${port}!`));

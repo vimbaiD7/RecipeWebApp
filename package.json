@@ -17,7 +17,12 @@
   "scripts": {
     "server": "node app.js",
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage",
+    "lint": "eslint",
+    "lint:fix": "eslint . --fix",
+    "check-secrets": "node scripts/check-secrets.js",
+    "check-readme-file": "node scripts/check-readme-file.js",
+    "check-tests-folder": "node scripts/check-tests-folder.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.50.1",
@@ -25,6 +30,19 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "nodemon": "^3.1.10"
-  }
+    "nodemon": "^3.1.10",
+    "pre-commit": "^1.2.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
+    "jest": "^30.0.5"
+  },
+  "pre-commit": [
+    "lint",
+    "check-tests-folder",
+    "check-readme-file",
+    "check-secrets"
+  ]
 }

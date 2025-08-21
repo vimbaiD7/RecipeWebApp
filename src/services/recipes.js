@@ -10,7 +10,7 @@ const createRecipe = async (recipeData) => {
         .select();
     if (error) throw error;
         return data;
-    }    
+    };    
 
 
  const getRecipe = async (recipeId) => {
@@ -20,7 +20,7 @@ const createRecipe = async (recipeData) => {
         .eq('id', recipeId);
      if (error) throw error;
         return data;   
-    }    
+    };    
  
 const getAllRecipesForUser = async (userId) => {
   const { data, error } = await supabase
@@ -42,7 +42,7 @@ const updateRecipe = async (recipeId, recipe) => {
         .eq('id', recipeId);
      if (error) throw error;
         return data;
-    }  
+    };  
 
 
 const deleteRecipe = async (recipeId) => {
@@ -52,7 +52,7 @@ const deleteRecipe = async (recipeId) => {
         .eq('id', recipeId);
      if (error) throw error;
         return data;
-    }    
+    };    
     module.exports= {
         createRecipe, getRecipe, updateRecipe, deleteRecipe, getAllRecipesForUser
-    }
+    };
